@@ -1,398 +1,398 @@
 {
-  "info": {
-    "_postman_id": "b9c8e8a4-5b3b-4d6a-8e15-b96d5234db9e",
-    "name": "Course Management API",
-    "description": "API Collection for IIT Bombay Course Management System",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Courses",
-      "description": "Endpoints for managing courses",
-      "item": [
-        {
-          "name": "Get All Courses",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/api/courses",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "courses"
-              ]
-            },
-            "description": "Returns a list of all courses with their prerequisites"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Course by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/api/courses/CS101",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "courses",
-                "CS101"
-              ]
-            },
-            "description": "Returns a specific course by its ID"
-          },
-          "response": []
-        },
-        {
-          "name": "Create Course",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"courseId\": \"CS401\",\n    \"title\": \"Advanced Database Systems\",\n    \"description\": \"Study of advanced database systems and concepts\",\n    \"prerequisiteCourseIds\": [\"CS101\", \"CS201\"]\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8080/api/courses",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "courses"
-              ]
-            },
-            "description": "Create a new course with optional prerequisites"
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Course",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/api/courses/CS401",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "courses",
-                "CS401"
-              ]
-            },
-            "description": "Delete a course by ID (if it's not a prerequisite for other courses)"
-          },
-          "response": []
-        },
-        {
-          "name": "Create Course (No Prerequisites)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"courseId\": \"CHEM101\",\n    \"title\": \"Introduction to Chemistry\",\n    \"description\": \"Basics of chemistry including atomic structure and chemical bonds\",\n    \"prerequisiteCourseIds\": []\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8080/api/courses",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "courses"
-              ]
-            },
-            "description": "Create a new course without prerequisites"
-          },
-          "response": []
-        },
-        {
-          "name": "Create Course (Invalid Prerequisite)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"courseId\": \"CS501\",\n    \"title\": \"Machine Learning\",\n    \"description\": \"Introduction to machine learning algorithms and applications\",\n    \"prerequisiteCourseIds\": [\"CS101\", \"INVALID_COURSE\"]\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8080/api/courses",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "courses"
-              ]
-            },
-            "description": "Attempt to create a course with an invalid prerequisite (should fail)"
-          },
-          "response": []
-        }
-      ]
+    "info": {
+        "_postman_id": "b9c8e8a4-5b3b-4d6a-8e15-b96d5234db9e",
+        "name": "Course Management API",
+        "description": "API Collection for IIT Bombay Course Management System",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
-    {
-      "name": "Course Instances",
-      "description": "Endpoints for managing course delivery instances",
-      "item": [
+    "item": [
         {
-          "name": "Get Instances by Year and Semester",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/api/instances/2024/1",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "instances",
-                "2024",
-                "1"
-              ]
-            },
-            "description": "List all course instances for a specific year and semester"
-          },
-          "response": []
+            "name": "Courses",
+            "description": "Endpoints for managing courses",
+            "item": [
+                {
+                    "name": "Get All Courses",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/courses",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "courses"
+                            ]
+                        },
+                        "description": "Returns a list of all courses with their prerequisites"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Course by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/courses/CS101",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "courses",
+                                "CS101"
+                            ]
+                        },
+                        "description": "Returns a specific course by its ID"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Course",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"courseId\": \"CS401\",\n    \"title\": \"Advanced Database Systems\",\n    \"description\": \"Study of advanced database systems and concepts\",\n    \"prerequisiteCourseIds\": [\"CS101\", \"CS201\"]\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/courses",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "courses"
+                            ]
+                        },
+                        "description": "Create a new course with optional prerequisites"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Course",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/courses/CS401",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "courses",
+                                "CS401"
+                            ]
+                        },
+                        "description": "Delete a course by ID (if it's not a prerequisite for other courses)"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Course (No Prerequisites)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"courseId\": \"CHEM101\",\n    \"title\": \"Introduction to Chemistry\",\n    \"description\": \"Basics of chemistry including atomic structure and chemical bonds\",\n    \"prerequisiteCourseIds\": []\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/courses",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "courses"
+                            ]
+                        },
+                        "description": "Create a new course without prerequisites"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Course (Invalid Prerequisite)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"courseId\": \"CS501\",\n    \"title\": \"Machine Learning\",\n    \"description\": \"Introduction to machine learning algorithms and applications\",\n    \"prerequisiteCourseIds\": [\"CS101\", \"INVALID_COURSE\"]\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/courses",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "courses"
+                            ]
+                        },
+                        "description": "Attempt to create a course with an invalid prerequisite (should fail)"
+                    },
+                    "response": []
+                }
+            ]
         },
         {
-          "name": "Get Instance Details",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/api/instances/2024/1/CS101",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "instances",
-                "2024",
-                "1",
-                "CS101"
-              ]
-            },
-            "description": "Get details of a specific course instance"
-          },
-          "response": []
+            "name": "Course Instances",
+            "description": "Endpoints for managing course delivery instances",
+            "item": [
+                {
+                    "name": "Get Instances by Year and Semester",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/instances/2024/1",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "instances",
+                                "2024",
+                                "1"
+                            ]
+                        },
+                        "description": "List all course instances for a specific year and semester"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Instance Details",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/instances/2024/1/CS101",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "instances",
+                                "2024",
+                                "1",
+                                "CS101"
+                            ]
+                        },
+                        "description": "Get details of a specific course instance"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Course Instance",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"courseId\": \"CS301\",\n    \"year\": 2025,\n    \"semester\": 2,\n    \"additionalInfo\": \"Monday and Wednesday, 1:00-2:30 PM, Room 204B\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/instances",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "instances"
+                            ]
+                        },
+                        "description": "Create a new course delivery instance"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Course Instance",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/instances/2025/2/CS301",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "instances",
+                                "2025",
+                                "2",
+                                "CS301"
+                            ]
+                        },
+                        "description": "Delete a specific course instance"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Invalid Course Instance",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"courseId\": \"INVALID_COURSE\",\n    \"year\": 2025,\n    \"semester\": 1,\n    \"additionalInfo\": \"This should fail as the course does not exist\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/instances",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "instances"
+                            ]
+                        },
+                        "description": "Attempt to create an instance with a non-existent course ID (should fail)"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Non-Existent Instance",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/instances/2099/3/CS999",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api",
+                                "instances",
+                                "2099",
+                                "3",
+                                "CS999"
+                            ]
+                        },
+                        "description": "Try to get a non-existent course instance (should return 404)"
+                    },
+                    "response": []
+                }
+            ]
         },
         {
-          "name": "Create Course Instance",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"courseId\": \"CS301\",\n    \"year\": 2025,\n    \"semester\": 2,\n    \"additionalInfo\": \"Monday and Wednesday, 1:00-2:30 PM, Room 204B\"\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8080/api/instances",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "instances"
-              ]
-            },
-            "description": "Create a new course delivery instance"
-          },
-          "response": []
+            "name": "API Documentation",
+            "description": "Endpoints for API documentation",
+            "item": [
+                {
+                    "name": "Swagger UI",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/swagger-ui.html",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "swagger-ui.html"
+                            ]
+                        },
+                        "description": "Access the Swagger UI for API documentation"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "OpenAPI Spec",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api-docs",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080",
+                            "path": [
+                                "api-docs"
+                            ]
+                        },
+                        "description": "Get the raw OpenAPI specification"
+                    },
+                    "response": []
+                }
+            ]
         },
         {
-          "name": "Delete Course Instance",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/api/instances/2025/2/CS301",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "instances",
-                "2025",
-                "2",
-                "CS301"
-              ]
+            "name": "H2 Console",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/h2-console",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "h2-console"
+                    ]
+                },
+                "description": "Access the H2 database console (credentials in application.properties)"
             },
-            "description": "Delete a specific course instance"
-          },
-          "response": []
-        },
-        {
-          "name": "Create Invalid Course Instance",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"courseId\": \"INVALID_COURSE\",\n    \"year\": 2025,\n    \"semester\": 1,\n    \"additionalInfo\": \"This should fail as the course does not exist\"\n}"
-            },
-            "url": {
-              "raw": "http://localhost:8080/api/instances",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "instances"
-              ]
-            },
-            "description": "Attempt to create an instance with a non-existent course ID (should fail)"
-          },
-          "response": []
-        },
-        {
-          "name": "Get Non-Existent Instance",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/api/instances/2099/3/CS999",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "instances",
-                "2099",
-                "3",
-                "CS999"
-              ]
-            },
-            "description": "Try to get a non-existent course instance (should return 404)"
-          },
-          "response": []
+            "response": []
         }
-      ]
-    },
-    {
-      "name": "API Documentation",
-      "description": "Endpoints for API documentation",
-      "item": [
-        {
-          "name": "Swagger UI",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/swagger-ui.html",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "swagger-ui.html"
-              ]
-            },
-            "description": "Access the Swagger UI for API documentation"
-          },
-          "response": []
-        },
-        {
-          "name": "OpenAPI Spec",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8080/api-docs",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8080",
-              "path": [
-                "api-docs"
-              ]
-            },
-            "description": "Get the raw OpenAPI specification"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "H2 Console",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/h2-console",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "h2-console"
-          ]
-        },
-        "description": "Access the H2 database console (credentials in application.properties)"
-      },
-      "response": []
-    }
-  ]
+    ]
 }
