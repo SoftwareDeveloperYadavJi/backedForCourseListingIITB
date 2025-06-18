@@ -49,7 +49,7 @@ This project implements a RESTful API for managing courses and course delivery i
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/SoftwareDeveloperYadavJi/backedForCourseListingIITB
 cd courses-api
 ```
 
