@@ -1,5 +1,11 @@
 package com.iitb.coursesapi.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.iitb.coursesapi.dto.CourseInstanceRequestDto;
 import com.iitb.coursesapi.dto.CourseInstanceResponseDto;
 import com.iitb.coursesapi.exception.CourseNotFoundException;
@@ -9,12 +15,8 @@ import com.iitb.coursesapi.model.CourseInstance;
 import com.iitb.coursesapi.model.CourseInstanceId;
 import com.iitb.coursesapi.repository.CourseInstanceRepository;
 import com.iitb.coursesapi.repository.CourseRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -32,7 +34,8 @@ public class CourseInstanceService {
     }
 
     @Transactional(readOnly = true)
-    public CourseInstanceResponseDto getInstanceByYearSemesterAndCourseId(Integer year, Integer semester, String courseId) {
+    public CourseInstanceResponseDto getInstanceByYearSemesterAndCourseId(Integer year, Integer semester,
+            String courseId) {
         CourseInstance instance = findInstanceByYearSemesterAndCourseId(year, semester, courseId);
         return mapToResponseDto(instance);
     }
@@ -41,13 +44,15 @@ public class CourseInstanceService {
     public CourseInstanceResponseDto createInstance(CourseInstanceRequestDto requestDto) {
         // Find the course
         Course course = courseRepository.findByCourseId(requestDto.getCourseId())
-                .orElseThrow(() -> new CourseNotFoundException("Course with ID " + requestDto.getCourseId() + " not found"));
+                .orElseThrow(
+                        () -> new CourseNotFoundException("Course with ID " + requestDto.getCourseId() + " not found"));
 
         // Check if instance already exists
-        CourseInstanceId instanceId = new CourseInstanceId(course.getId(), requestDto.getYear(), requestDto.getSemester());
+        CourseInstanceId instanceId = new CourseInstanceId(course.getId(), requestDto.getYear(),
+                requestDto.getSemester());
         if (courseInstanceRepository.existsById(instanceId)) {
-            throw new DuplicateCourseException("Course instance for " + requestDto.getCourseId() + 
-                    " in year " + requestDto.getYear() + ", semester " + requestDto.getSemester() + 
+            throw new DuplicateCourseException("Course instance for " + requestDto.getCourseId() +
+                    " in year " + requestDto.getYear() + ", semester " + requestDto.getSemester() +
                     " already exists");
         }
 
@@ -69,9 +74,9 @@ public class CourseInstanceService {
     private CourseInstance findInstanceByYearSemesterAndCourseId(Integer year, Integer semester, String courseId) {
         return courseInstanceRepository.findByYearAndSemesterAndCourseId(year, semester, courseId)
                 .orElseThrow(() -> new CourseNotFoundException(
-                        "Course instance for course ID " + courseId + 
-                        " in year " + year + ", semester " + semester + 
-                        " not found"));
+                        "Course instance for course ID " + courseId +
+                                " in year " + year + ", semester " + semester +
+                                " not found"));
     }
 
     private CourseInstanceResponseDto mapToResponseDto(CourseInstance instance) {
