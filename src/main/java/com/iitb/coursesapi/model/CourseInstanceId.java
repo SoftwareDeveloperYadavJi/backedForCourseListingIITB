@@ -18,7 +18,8 @@ import java.io.Serializable;
 public class CourseInstanceId implements Serializable {
 
     @Column(name = "course_id")
-    private Long courseId;    @NotNull(message = "Year is required")
+    private Long courseId;
+    @NotNull(message = "Year is required")
     @Min(value = 2000, message = "Year must be 2000 or later")
     @Column(name = "academic_year") // Changed column name to avoid reserved keyword
     private Integer year;

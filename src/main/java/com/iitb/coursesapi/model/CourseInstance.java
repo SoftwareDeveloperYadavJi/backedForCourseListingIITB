@@ -1,9 +1,13 @@
 package com.iitb.coursesapi.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +29,7 @@ public class CourseInstance {
 
     @Column(name = "additional_info")
     private String additionalInfo;
-    
+
     // Constructor for easier creation
     public CourseInstance(Course course, int year, int semester) {
         this.id = new CourseInstanceId(course.getId(), year, semester);
