@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  backend:
+    image: ${DOCKER_USERNAME}/courses-api:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    restart: always
+    
+  # Placeholder for frontend service (to be implemented separately)
+  frontend:
+    image: ${DOCKER_USERNAME}/courses-frontend:latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always
